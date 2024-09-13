@@ -204,13 +204,51 @@ p {
 }
 
 
+nav#navbar ul li a.nav-link {
+
+    text-decoration: none; /* Remove o sublinhado dos links */
+    position: relative; /* Necessário para posicionar o pseudo-elemento */
+    padding-bottom: 10px;
+}
+
+nav#navbar ul li a.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; /* Começa do lado esquerdo do link */
+    bottom: 0; /* Alinha na parte inferior do link */
+    width: 0; /* Começa com largura zero */
+    height: 1px; /* Altura da linha */
+    background-color: #225eb9; /* Cor da linha */
+    transition: width 0.3s ease-in; /* Animação suave */
+}
+
+nav#navbar ul li a.nav-link:hover::after {
+    width: 50%; /* Largura total do link */
+}
+
+
 .nav-button {
     background-color: #0263A0;
     text-decoration: none;
     color: white;
     padding: 15px 30px;
     border-radius: 30px;
+    transition: transform 0.3s ease-in;
 }
+
+.nav-button:hover {
+    background-color: #0b7dc4;
+}
+
+li.nav-button-li {
+    transition: transform 0.3s ease-in-out;
+
+}
+
+li.nav-button-li:hover {
+    transform: scale(1.05);
+}
+
 .nav-list-desktop {
     display: flex;
     list-style: none;
@@ -441,6 +479,7 @@ section#exp {
     background: radial-gradient(50% 50% at 50% 50%, rgba(36, 66, 87, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%);
     gap: 60px;
     margin-top: 50px;
+    margin-bottom: 30px;
 
 }
 
@@ -606,7 +645,7 @@ section#exp {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 20px;
     background-color: #0c0c0c;
     border: 1px solid #3b3b3b;
